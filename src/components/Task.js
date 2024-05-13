@@ -1,11 +1,18 @@
 import React from "react";
 
-function Task() {
+function Task({ task, onDelete }) {
+  // Handle case when task is undefined
+  if (!task) {
+    return null;
+  }
+
   return (
     <div className="task">
-      <div className="label">CATEGORY HERE</div>
-      <div className="text">TEXT HERE</div>
-      <button className="delete">X</button>
+      {/* Check if task.category exists before accessing it */}
+      <div className="label">{task.category}</div>
+      {/* Check if task.text exists before accessing it */}
+      <div className="text">{task.text}</div>
+      <button className="delete" onClick={onDelete}>X</button>
     </div>
   );
 }
